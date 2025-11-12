@@ -28,8 +28,16 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
+// Configuração do CORS
+const corsOptions = {
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -260,11 +268,13 @@ async function testDatabaseConnection() {
 }
 
 // Iniciar servidor
-app.listen(PORT, async () => {
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  console.log(`📝 Endpoint de cadastro: http://localhost:${PORT}/api/signup`);
-  console.log(`📊 Endpoint de listagem: http://localhost:${PORT}/api/signups`);
-  console.log(`💚 Endpoint de health: http://localhost:${PORT}/api/health`);
+const HOST = process.env.HOST || '0.0.0.0';
+app.listen(PORT, HOST, async () => {
+  console.log(`🚀 Servidor rodando em http://${HOST}:${PORT}`);
+  console.log(`📝 Endpoint de cadastro: http://${HOST}:${PORT}/api/signup`);
+  console.log(`📊 Endpoint de listagem: http://${HOST}:${PORT}/api/signups`);
+  console.log(`💚 Endpoint de health: http://${HOST}:${PORT}/api/health`);
+  console.log(`🌐 CORS Origin configurado: ${process.env.CORS_ORIGIN || '*'}`);
   console.log('');
 
   // Testar conexão com o banco
