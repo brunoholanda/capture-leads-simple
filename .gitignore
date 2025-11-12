@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+backend/node_modules/
+
+# Dados do backend
+data/
+backend/data/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Variáveis de ambiente
+.env
+.env.local
+backend/.env
+backend/env.example
+# Mantém env.example na raiz para documentação
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+

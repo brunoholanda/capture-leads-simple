@@ -1,0 +1,28 @@
+{
+  "name": "puffrunner-backend",
+  "version": "1.0.0",
+  "description": "Backend simples em Express para capturar emails, roles e nomes do formulário de waitlist",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node scripts/run-migrations.js",
+    "migrate:up": "node-pg-migrate up",
+    "migrate:down": "node-pg-migrate down",
+    "migrate:create": "node-pg-migrate create"
+  },
+  "keywords": ["express", "backend", "api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "node-pg-migrate": "^6.2.2"
+  }
+}
+

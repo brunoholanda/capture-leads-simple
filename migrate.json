@@ -1,0 +1,6 @@
+{
+  "databaseUrl": "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}",
+  "migrationsDirectory": "./migrations",
+  "migrationTable": "pgmigrations"
+}
+
